@@ -1,0 +1,21 @@
+{
+  "name": "discord-moderation-fun-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot with moderation and fun commands.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "lint": "eslint ."
+  },
+  "keywords": ["discord", "bot", "moderation", "fun", "discord.js"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.0.0",
+    "dotenv": "^16.0.0",
+    "node-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0"
+  }
+}
