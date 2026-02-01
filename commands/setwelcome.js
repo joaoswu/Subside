@@ -26,7 +26,11 @@ module.exports = {
       embeds: [{
         title: '👋 Welcome Message Set',
         description: `Welcome messages will be sent in ${channel} with the message:\n> ${message}`,
-        color: 0x57F287
+        color: 0x57F287,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Welcome • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

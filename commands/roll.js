@@ -11,7 +11,10 @@ module.exports = {
         title: '🎲 Dice Roll',
         description: `You rolled a **${roll}**!`,
         color: 0x57F287,
-        footer: { text: 'Feeling lucky?' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Roll • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

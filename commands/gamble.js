@@ -32,7 +32,11 @@ module.exports = {
       embeds: [{
         title: win ? '🎉 You Won!' : '😢 You Lost!',
         description: win ? `You won **${amount} coins**!` : `You lost **${amount} coins**!`,
-        color: win ? 0x57F287 : 0xED4245
+        color: win ? 0x57F287 : 0xED4245,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Gamble • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

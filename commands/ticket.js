@@ -30,7 +30,11 @@ module.exports = {
       embeds: [{
         title: '🎫 New Ticket',
         description: `User: <@${interaction.user.id}>\nReason: ${reason}`,
-        color: 0x5865F2
+        color: 0x5865F2,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Ticket • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
     await interaction.reply({ content: `Your ticket has been created: ${ticketChannel}`, ephemeral: true });

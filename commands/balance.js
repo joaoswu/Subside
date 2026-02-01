@@ -16,7 +16,11 @@ module.exports = {
       embeds: [{
         title: '💰 Your Balance',
         description: `Balance: **${userEco.balance}** coins`,
-        color: 0xFEE75C
+        color: 0xFEE75C,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Balance • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

@@ -15,7 +15,10 @@ module.exports = {
         title: '🗣️ Bot says:',
         description: text,
         color: 0x5865F2,
-        footer: { text: 'Echo command' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Say • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

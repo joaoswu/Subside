@@ -25,7 +25,11 @@ module.exports = {
       embeds: [{
         title: '🎁 Daily Reward',
         description: 'You received **100 coins**! Come back tomorrow for more.',
-        color: 0x57F287
+        color: 0x57F287,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Daily • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

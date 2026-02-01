@@ -13,9 +13,12 @@ module.exports = {
     await interaction.reply({
       embeds: [{
         title: `🖼️ Avatar for ${user.tag}`,
-        image: { url: user.displayAvatarURL({ dynamic: true, size: 512 }) },
         color: 0x5865F2,
-        footer: { text: 'Profile Picture' }
+        author: { name: user.tag, icon_url: user.displayAvatarURL() },
+        thumbnail: { url: user.displayAvatarURL({ dynamic: true, size: 128 }) },
+        image: { url: user.displayAvatarURL({ dynamic: true, size: 512 }) },
+        footer: { text: `Subside Bot • Avatar • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

@@ -20,7 +20,10 @@ module.exports = {
         title: '⏰ Reminder Set!',
         description: `I will remind you in **${minutes}** minute(s):\n> ${message}`,
         color: 0x57F287,
-        footer: { text: 'Reminder command' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Reminder • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });
@@ -29,7 +32,11 @@ module.exports = {
         embeds: [{
           title: '⏰ Reminder!',
           description: message,
-          color: 0xFEE75C
+          color: 0xFEE75C,
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+          footer: { text: `Subside Bot • Reminder • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       }).catch(() => {});
     }, minutes * 60 * 1000);

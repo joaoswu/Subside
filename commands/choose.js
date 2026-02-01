@@ -19,7 +19,10 @@ module.exports = {
         title: '🤔 I choose...',
         description: `**${choice}**`,
         color: 0x57F287,
-        footer: { text: 'Random choice' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Choose • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

@@ -19,7 +19,10 @@ module.exports = {
           title: '🔇 User Muted',
           description: `🤫 **${user.user.tag}** was muted for 10 minutes.`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Mute' }
+          author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+          thumbnail: { url: user.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Mute • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
       // Log moderation
@@ -27,16 +30,20 @@ module.exports = {
         title: '🔇 User Muted',
         description: `Moderator: <@${interaction.user.id}>\nUser: **${user.user.tag}** (${user.id})\nDuration: 10 minutes`,
         color: 0xED4245,
-        timestamp: new Date().toISOString(),
-        footer: { text: 'Moderation • Mute' }
+        author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+        thumbnail: { url: user.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Mute • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       });
     } catch {
       await interaction.reply({
         embeds: [{
           title: '❌ Mute Failed',
-          description: 'Failed to mute user.',
+          description: `Failed to mute user. Please check my permissions and role hierarchy.`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Mute' }
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Mute • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }],
         ephemeral: true
       });

@@ -14,14 +14,16 @@ module.exports = {
     await interaction.reply({
       embeds: [{
         title: `👤 User Info: ${user.tag}`,
+        color: 0x5865F2,
+        author: { name: user.tag, icon_url: user.displayAvatarURL() },
         thumbnail: { url: user.displayAvatarURL({ dynamic: true, size: 256 }) },
         fields: [
           { name: '🆔 User ID', value: user.id, inline: true },
           { name: '🎂 Created', value: `<t:${Math.floor(user.createdTimestamp/1000)}:D>`, inline: true },
           { name: '🛬 Joined', value: member ? `<t:${Math.floor(member.joinedTimestamp/1000)}:D>` : 'N/A', inline: true }
         ],
-        color: 0x5865F2,
-        footer: { text: 'User Information' }
+        footer: { text: `Subside Bot • User Info • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

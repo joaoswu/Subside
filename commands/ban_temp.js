@@ -25,15 +25,20 @@ module.exports = {
           title: '⏳ User Temporarily Banned',
           description: `🚫 **${user.user.tag}** was banned for ${days} day(s).`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Temp Ban' }
+          author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+          thumbnail: { url: user.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Temp Ban • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
       await logModeration(interaction.guild, {
         title: '⏳ User Temporarily Banned',
         description: `Moderator: <@${interaction.user.id}>\nUser: **${user.user.tag}** (${user.id})\nDuration: ${days} day(s)`,
         color: 0xED4245,
-        timestamp: new Date().toISOString(),
-        footer: { text: 'Moderation • Temp Ban' }
+        author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+        thumbnail: { url: user.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Temp Ban • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       });
       // Add to case history
       if (client.addCase) {
@@ -50,9 +55,11 @@ module.exports = {
       await interaction.reply({
         embeds: [{
           title: '❌ Temp Ban Failed',
-          description: 'Failed to ban user.',
+          description: `Failed to ban user. Please check my permissions and role hierarchy.`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Temp Ban' }
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Temp Ban • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }],
         ephemeral: true
       });

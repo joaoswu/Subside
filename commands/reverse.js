@@ -16,7 +16,10 @@ module.exports = {
         title: '🔄 Reversed Text',
         description: reversed,
         color: 0x5865F2,
-        footer: { text: 'Text reversal' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Reverse • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

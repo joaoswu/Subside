@@ -31,8 +31,12 @@ module.exports = {
     await interaction.reply({
       embeds: [{
         title: '📨 Appeal Submitted',
-        description: `Your appeal for case #${userCases.length} has been submitted. Reason: ${reason}`,
-        color: 0x57F287
+        description: `Your appeal for case #${userCases.length} has been submitted.\nReason: ${reason}`,
+        color: 0x57F287,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Appeal • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

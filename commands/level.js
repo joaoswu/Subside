@@ -16,7 +16,11 @@ module.exports = {
       embeds: [{
         title: '🏆 Your Level',
         description: `Level: **${userXP.level}**\nXP: **${userXP.xp}**`,
-        color: 0x57F287
+        color: 0x57F287,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Level • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

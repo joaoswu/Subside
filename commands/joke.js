@@ -12,9 +12,12 @@ module.exports = {
       await interaction.reply({
         embeds: [{
           title: '🤣 Here’s a joke:',
-          description: `**${data.setup}**\n||${data.punchline}||`,
           color: 0x57F287,
-          footer: { text: 'Powered by Official Joke API' }
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+          description: `**${data.setup}**\n||${data.punchline}||`,
+          footer: { text: `Subside Bot • Joke • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
     } catch {

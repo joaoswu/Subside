@@ -11,7 +11,10 @@ module.exports = {
         title: '🪙 Coin Flip',
         description: `The coin landed on **${result}**!`,
         color: 0xFEE75C,
-        footer: { text: 'Try your luck!' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+        footer: { text: `Subside Bot • Coinflip • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

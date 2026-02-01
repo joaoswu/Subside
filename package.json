@@ -7,10 +7,17 @@
     "start": "node src/index.js",
     "lint": "eslint ."
   },
-  "keywords": ["discord", "bot", "moderation", "fun", "discord.js"],
+  "keywords": [
+    "discord",
+    "bot",
+    "moderation",
+    "fun",
+    "discord.js"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "canvas": "^3.2.1",
     "discord.js": "^14.0.0",
     "dotenv": "^16.0.0",
     "node-fetch": "^3.0.0"

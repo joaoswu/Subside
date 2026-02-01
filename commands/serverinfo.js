@@ -14,6 +14,8 @@ module.exports = {
     await interaction.reply({
       embeds: [{
         title: `📊 Server Info: ${guild.name}`,
+        color: 0x57F287,
+        author: { name: guild.name, icon_url: guild.iconURL() },
         thumbnail: { url: guild.iconURL({ dynamic: true }) },
         fields: [
           { name: '👑 Owner', value: `<@${guild.ownerId}>`, inline: true },
@@ -24,8 +26,8 @@ module.exports = {
           { name: '💬 Channels', value: `${channels}`, inline: true },
           { name: '🚀 Boosts', value: `${boosts} (${boostLevel})`, inline: true }
         ],
-        color: 0x57F287,
-        footer: { text: 'Server Information' }
+        footer: { text: `Subside Bot • Server Info • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

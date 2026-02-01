@@ -22,7 +22,11 @@ module.exports = {
       embeds: [{
         title: '🏆 XP Leaderboard',
         description: sorted.map(([id, data], i) => `#${i+1} <@${id}> • Level: **${data.level}** • XP: **${data.xp}**`).join('\n'),
-        color: 0x5865F2
+        color: 0x5865F2,
+        author: { name: interaction.guild.name, icon_url: interaction.guild.iconURL() },
+        thumbnail: { url: interaction.guild.iconURL() },
+        footer: { text: `Subside Bot • Leaderboard • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

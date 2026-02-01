@@ -14,12 +14,16 @@ module.exports = {
     ];
     const reply = responses[Math.floor(Math.random() * responses.length)];
     await interaction.reply({
+**Answer:** ${reply}`,
       embeds: [{
         title: '🎱 The Magic 8ball',
         description: `**Question:** ${interaction.options.getString('question')}
 **Answer:** ${reply}`,
         color: 0x5865F2,
-        footer: { text: 'Ask again anytime! 🔮' }
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/104/104980.png' },
+        footer: { text: `Subside Bot • 8ball • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

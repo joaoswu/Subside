@@ -24,7 +24,11 @@ module.exports = {
       embeds: [{
         title: `📚 Case History for ${user.tag}`,
         description: userCases.map((c, i) => `#${i+1} • Type: **${c.type}** • Moderator: <@${c.moderator}> • ${c.duration ? `Duration: ${c.duration}d` : ''} • <t:${Math.floor(c.timestamp/1000)}:f>`).join('\n'),
-        color: 0xED4245
+        color: 0xED4245,
+        author: { name: user.tag, icon_url: user.displayAvatarURL() },
+        thumbnail: { url: user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Cases • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

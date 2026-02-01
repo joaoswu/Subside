@@ -35,6 +35,9 @@ module.exports = {
     await interaction.reply({
       embeds: [{
         title: '📊 Bot Analytics',
+        color: 0x5865F2,
+        author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+        thumbnail: { url: interaction.user.displayAvatarURL() },
         fields: [
           { name: 'Total Messages', value: analytics.messages.toString(), inline: true },
           { name: 'Top Commands', value: topCommands, inline: false },
@@ -43,7 +46,8 @@ module.exports = {
           { name: 'Top Channels', value: topChannels, inline: false },
           { name: 'Command Errors', value: topErrors, inline: false }
         ],
-        color: 0x5865F2
+        footer: { text: `Subside Bot • Analytics • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }],
       ephemeral: true
     });

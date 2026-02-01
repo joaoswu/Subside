@@ -17,7 +17,10 @@ module.exports = {
         title: '⚠️ User Warned',
         description: `⚠️ **${user.user.tag}** was warned.`,
         color: 0xFEE75C,
-        footer: { text: 'Moderation • Warn' }
+        author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+        thumbnail: { url: user.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Warn • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
     // Log moderation
@@ -25,8 +28,10 @@ module.exports = {
       title: '⚠️ User Warned',
       description: `Moderator: <@${interaction.user.id}>\nUser: **${user.user.tag}** (${user.id})`,
       color: 0xFEE75C,
-      timestamp: new Date().toISOString(),
-      footer: { text: 'Moderation • Warn' }
+      author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+      thumbnail: { url: user.user.displayAvatarURL() },
+      footer: { text: `Subside Bot • Warn • ${new Date().toLocaleDateString()}` },
+      timestamp: new Date().toISOString()
     });
   }
 };

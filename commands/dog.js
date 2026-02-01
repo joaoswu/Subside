@@ -12,9 +12,12 @@ module.exports = {
       await interaction.reply({
         embeds: [{
           title: '🐶 Woof! Here\'s a dog:',
-          image: { url: data.message },
           color: 0xFEE75C,
-          footer: { text: 'Dog API' }
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
+          image: { url: data.message },
+          footer: { text: `Subside Bot • Dog • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
     } catch {

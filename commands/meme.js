@@ -12,11 +12,14 @@ module.exports = {
       await interaction.reply({
         embeds: [{
           title: `😂 Meme Time!`,
+          color: 0x5865F2,
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          thumbnail: { url: 'https://cdn-icons-png.flaticon.com/512/616/616408.png' },
           description: `From: [${data.subreddit}](https://reddit.com/r/${data.subreddit}) | 👍 ${data.ups || 0}`,
           image: { url: data.url },
           url: data.postLink || undefined,
-          color: 0x5865F2,
-          footer: { text: 'Enjoy your meme! 😎' }
+          footer: { text: `Subside Bot • Meme • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
     } catch {

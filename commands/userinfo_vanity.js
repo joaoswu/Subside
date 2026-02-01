@@ -11,7 +11,10 @@ module.exports = {
         title: '🪪 Your Discord Info',
         description: `Tag: **${user.tag}**\nID: **${user.id}**`,
         color: 0x5865F2,
-        footer: { text: 'User Vanity' }
+        author: { name: user.tag, icon_url: user.displayAvatarURL() },
+        thumbnail: { url: user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Vanity • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       }]
     });
   }

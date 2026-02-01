@@ -19,7 +19,10 @@ module.exports = {
           title: '👢 User Kicked',
           description: `👋 **${user.user.tag}** was kicked from the server.`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Kick' }
+          author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+          thumbnail: { url: user.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Kick • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }]
       });
       // Log moderation
@@ -27,16 +30,20 @@ module.exports = {
         title: '👢 User Kicked',
         description: `Moderator: <@${interaction.user.id}>\nUser: **${user.user.tag}** (${user.id})`,
         color: 0xED4245,
-        timestamp: new Date().toISOString(),
-        footer: { text: 'Moderation • Kick' }
+        author: { name: user.user.tag, icon_url: user.user.displayAvatarURL() },
+        thumbnail: { url: user.user.displayAvatarURL() },
+        footer: { text: `Subside Bot • Kick • ${new Date().toLocaleDateString()}` },
+        timestamp: new Date().toISOString()
       });
     } catch {
       await interaction.reply({
         embeds: [{
           title: '❌ Kick Failed',
-          description: 'Failed to kick user.',
+          description: `Failed to kick user. Please check my permissions and role hierarchy.`,
           color: 0xED4245,
-          footer: { text: 'Moderation • Kick' }
+          author: { name: interaction.user.tag, icon_url: interaction.user.displayAvatarURL() },
+          footer: { text: `Subside Bot • Kick • ${new Date().toLocaleDateString()}` },
+          timestamp: new Date().toISOString()
         }],
         ephemeral: true
       });
